@@ -29,7 +29,7 @@ var express = require('express'),
                       //HTML response will render the index.jade file in the views/blobs folder. We are also setting "blobs" to be an accessible variable in our jade view
                     html: function(){
                         res.render('blogs/index', {
-                              title: 'All my Blogs',
+                              title: 'All My Blogs',
                               "blobs" : blobs
                           });
                     },
@@ -45,14 +45,14 @@ var express = require('express'),
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         var name = req.body.name;
-        var badge = req.body.badge;
+        var phone = req.body.phone;
         var dob = req.body.dob;
         var company = req.body.company;
         var isloved = req.body.isloved;
         //call the create function for our database
         mongoose.model('Blog').create({
             name : name,
-            badge : badge,
+            phone : phone,
             dob : dob,
             isloved : isloved
         }, function (err, blob) {
@@ -155,7 +155,7 @@ var express = require('express'),
                     html: function(){
                            res.render('blogs/edit', {
                               title: 'Blog' + blob._id,
-                            "blobdob" : blobdob,
+                              "blobdob" : blobdob,
                               "blob" : blob
                           });
                      },
@@ -173,7 +173,7 @@ var express = require('express'),
     router.put('/:id/edit', function(req, res) {
         // Get our REST or form values. These rely on the "name" attributes
         var name = req.body.name;
-        var badge = req.body.badge;
+        var phone = req.body.phone;
         var dob = req.body.dob;
         var company = req.body.company;
         var isloved = req.body.isloved;
@@ -183,7 +183,7 @@ var express = require('express'),
                 //update it
                 blob.update({
                     name : name,
-                    badge : badge,
+                    phone : phone,
                     dob : dob,
                     isloved : isloved
                 }, function (err, blobID) {

@@ -6,8 +6,8 @@ block content
 	form(action='/blogs/#{blob._id}/edit',method='post',name='updateblob',enctype='application/x-www-form-urlencoded')
 		p Name:
 			input#inputName(type='text', value='#{blob.name}', name='name')
-		p Badge:
-			input#inputBadge(type='number', value='#{blob.badge}', name='badge')
+		p Phone:
+			input#inputBadge(type='number', value='#{blob.phone}', name='phone')
 		p DOB:
 			input#inputDob(type='date', value='#{blobdob}', name='dob')
 		p Are you Loved?:
